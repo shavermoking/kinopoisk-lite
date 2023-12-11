@@ -1,0 +1,9 @@
+name: kinopoisk-lite
+recipe: lamp
+config:
+  webroot: .
+services:
+  phpmyadmin:
+    type: phpmyadmin
+  appserver:
+    type: php:8.2
