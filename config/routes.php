@@ -1,10 +1,15 @@
 <?php
 
+use App\Router\Route;
+
 return [
-    '/home' => function() {
+    Route::get('/home', function() {
         include_once APP_PATH . '/views/pages/home.php';
-    },
-    '/movies' => function() {
+    }),
+    Route::get('/movies', function() {
         include_once APP_PATH . '/views/pages/movies.php';
-    }
+    }),
+    Route::post('/test', function (){
+        include_once APP_PATH . '/views/pages/movies.php';
+    })
 ];
