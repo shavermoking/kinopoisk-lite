@@ -1,5 +1,13 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
+const APP_PATH = __DIR__;
 
-echo 'Теперь все запросы тут';
+require_once APP_PATH . '/vendor/autoload.php';
+
+use App\App;
+
+
+
+$app = new App();
+
+$app->run();
