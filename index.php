@@ -1,11 +1,13 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
+const APP_PATH = __DIR__;
 
-$routes = require_once __DIR__ . '/config/routes.php';
+require_once APP_PATH . '/vendor/autoload.php';
 
-$uri = $_SERVER['REQUEST_URI'];
+use App\App;
 
-$routes[$uri]();
 
-echo 'Теперь все запросы тут';
+
+$app = new App();
+
+$app->run();

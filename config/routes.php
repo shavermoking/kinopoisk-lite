@@ -2,9 +2,9 @@
 
 return [
     '/home' => function() {
-    echo "<h1>Home page</h1>";
+        include_once APP_PATH . '/views/pages/home.php';
     },
     '/movies' => function() {
-    echo "<h1>Movies page</h1>";
+        include_once APP_PATH . '/views/pages/movies.php';
     }
 ];
