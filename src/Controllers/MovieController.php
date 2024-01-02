@@ -7,10 +7,19 @@ use App\Kernel\View\View;
 
 class MovieController extends Controller
 {
-    public function index()
+    public function index(): void
     {
-        $view = new View();
-
-        $view->page('movies');
+        $this->view('movies');
     }
+
+    public function add(): void
+    {
+        $this->view('admin/movies/add');
+    }
+
+    public function store()
+    {
+        dd($this->request()->input('name'));
+    }
+
 }
