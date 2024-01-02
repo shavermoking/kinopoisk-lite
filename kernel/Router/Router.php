@@ -5,6 +5,7 @@ namespace App\Kernel\Router;
 use App\Kernel\Controller\Controller;
 use App\Kernel\Http\Redirect;
 use App\Kernel\Http\Request;
+use App\Kernel\Session\Session;
 use App\Kernel\View\View;
 use JetBrains\PhpStorm\NoReturn;
 
@@ -20,6 +21,7 @@ class Router
         private readonly View    $view,
         private readonly Request $request,
         private readonly Redirect $redirect,
+        private readonly Session $session,
     )
     {
         $this->initRoutes();
@@ -41,6 +43,7 @@ class Router
             call_user_func([$controller, 'setView'], $this->view);
             call_user_func([$controller, 'setRequest'], $this->request);
             call_user_func([$controller, 'setRedirect'], $this->redirect);
+            call_user_func([$controller, 'setSession'], $this->session);
 
             call_user_func([$controller, $action]);
         }else{
