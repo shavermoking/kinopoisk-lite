@@ -26,8 +26,11 @@ class MovieController extends Controller
         ]);
 
         if (! $validation) {
+            foreach ($this->request()->errors() as $field => $errors){
+                $this->session()->set($field, $errors);
+            }
+
             $this->redirect('/admin/movies/add');
-//            dd('Validation failed', $this->request()->errors());
         }
 
         dd('Validation passed');

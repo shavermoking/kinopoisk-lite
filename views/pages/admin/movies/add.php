@@ -1,10 +1,11 @@
 <?php
 /**
  * @var View $view
+ * @var Session $session
  */
 
+use App\Kernel\Session\Session;
 use App\Kernel\View\View;
-
 ?>
 
 
@@ -18,6 +19,13 @@ use App\Kernel\View\View;
             <input type="text" name="name">
         </label>
     </div>
+    <?php if ($session->has('name')) { ?>
+    <ul>
+        <?php foreach ($session->getFlash('name') as $error) {?>
+        <li style="color: red;"><?php echo $error ?></li>
+        <?php } ?>
+    </ul>
+    <?php } ?>
     <div>
         <button>
             Add
